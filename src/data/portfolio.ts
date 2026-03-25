@@ -5,7 +5,7 @@ export const personalInfo = {
   email: "jrantiojobhoy@gmail.com",
   phone: "+639380797638",
   github: "https://github.com/JohnnyBhoy",
-  linkedin: "https://www.linkedin.com/in/johnny-antiojo",
+  linkedin: "https://www.linkedin.com/in/johnny-antiojo-jr-967644167/",
   summary: `Results-driven Full-Stack Software Developer with 6+ years of experience building scalable, fault-tolerant, and security-compliant web applications. Proficient in React, TypeScript, Vue.js, and Node.js on the frontend and backend, with a strong command of HTML/CSS, responsive design, and TailwindCSS. Experienced in clean code principles (SOLID, DRY, KISS, YAGNI), CI/CD pipelines, automated testing, and cross-functional collaboration with engineers, designers, testers, and product owners. Proactive in surfacing UX and performance issues throughout the development lifecycle.`,
 };
 

@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import { Mail, Phone, ChevronDown, Cpu, Zap, Globe } from 'lucide-react';
+import { Mail, Phone, ChevronDown, Cpu, Zap, Globe, Sparkles } from 'lucide-react';
 import { FaGithub, FaLinkedin } from 'react-icons/fa';
 import { personalInfo } from '../data/portfolio';
 
@@ -129,10 +129,23 @@ export default function Hero() {
 
       {/* Main content */}
       <div className="relative z-10 max-w-4xl mx-auto px-6 text-center">
+        {/* AI badge */}
+        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-ai-purple/40 bg-gradient-to-r from-ai-purple/10 to-ai-pink/10 text-sm text-white mb-4 animate-fade-in" style={{ boxShadow: '0 0 20px rgba(139,92,246,0.25)' }}>
+          <Sparkles size={13} className="text-ai-purple" />
+          <span className="font-mono text-xs tracking-wide">
+            <span className="text-ai-purple font-semibold">AI-Generated</span>
+            <span className="text-slate-400"> · Designed & built with </span>
+            <span className="text-ai-pink font-semibold">Claude AI</span>
+          </span>
+          <Sparkles size={13} className="text-ai-pink" />
+        </div>
+
         {/* Status badge */}
-        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-ai-cyan/20 bg-ai-cyan/5 text-sm text-ai-cyan mb-8 animate-fade-in">
-          <span className="w-2 h-2 rounded-full bg-ai-green animate-pulse" />
-          <span className="font-mono">Available for new opportunities</span>
+        <div className="flex justify-center">
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-ai-cyan/20 bg-ai-cyan/5 text-sm text-ai-cyan mb-8 animate-fade-in">
+            <span className="w-2 h-2 rounded-full bg-ai-green animate-pulse" />
+            <span className="font-mono">Available for new opportunities</span>
+          </div>
         </div>
 
         {/* Name */}

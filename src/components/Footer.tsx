@@ -1,4 +1,4 @@
-import { Mail, Phone, Code2, Heart } from 'lucide-react';
+import { Mail, Phone, Code2, Heart, Sparkles } from 'lucide-react';
 import { FaGithub, FaLinkedin } from 'react-icons/fa';
 import { personalInfo } from '../data/portfolio';
 
@@ -58,10 +58,19 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="mt-8 pt-6 border-t border-ai-border/50 flex items-center justify-center gap-1.5 text-xs text-slate-600">
-          <span>Built with</span>
-          <Heart size={11} className="text-red-500 fill-red-500" />
-          <span>using React, TypeScript & TailwindCSS</span>
+        <div className="mt-8 pt-6 border-t border-ai-border/50 flex flex-col items-center gap-2">
+          <div className="flex items-center gap-1.5 text-xs">
+            <Sparkles size={11} className="text-ai-purple" />
+            <span className="text-ai-purple font-semibold">AI-Generated Portfolio</span>
+            <span className="text-slate-600">— designed & built with</span>
+            <span className="text-ai-pink font-semibold">Claude AI</span>
+            <Sparkles size={11} className="text-ai-pink" />
+          </div>
+          <div className="flex items-center gap-1.5 text-xs text-slate-600">
+            <span>Powered by</span>
+            <Heart size={11} className="text-red-500 fill-red-500" />
+            <span>React, TypeScript & TailwindCSS</span>
+          </div>
         </div>
       </div>
     </footer>
