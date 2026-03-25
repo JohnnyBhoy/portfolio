@@ -1,19 +1,27 @@
-import { useEffect, useRef, useState } from 'react';
-import { Mail, Phone, ChevronDown, Cpu, Zap, Globe, Sparkles } from 'lucide-react';
-import { FaGithub, FaLinkedin } from 'react-icons/fa';
-import { personalInfo } from '../data/portfolio';
+import { useEffect, useRef, useState } from "react";
+import {
+  Mail,
+  Phone,
+  ChevronDown,
+  Cpu,
+  Zap,
+  Globe,
+  Sparkles,
+} from "lucide-react";
+import { FaGithub, FaLinkedin } from "react-icons/fa";
+import { personalInfo } from "../data/portfolio";
 
 const roles = [
-  'Full-Stack Developer',
-  'React / TypeScript Expert',
-  'Node.js & PHP Engineer',
-  'UI/UX Enthusiast',
-  'Cloud & DevOps Practitioner',
+  "Full-Stack Developer",
+  "React / TypeScript Expert",
+  "Node.js & PHP Engineer",
+  "UI/UX Enthusiast",
+  "Cloud & DevOps Practitioner",
 ];
 
 export default function Hero() {
   const [roleIndex, setRoleIndex] = useState(0);
-  const [displayed, setDisplayed] = useState('');
+  const [displayed, setDisplayed] = useState("");
   const [typing, setTyping] = useState(true);
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
@@ -23,7 +31,10 @@ export default function Hero() {
     let timeout: ReturnType<typeof setTimeout>;
     if (typing) {
       if (displayed.length < current.length) {
-        timeout = setTimeout(() => setDisplayed(current.slice(0, displayed.length + 1)), 60);
+        timeout = setTimeout(
+          () => setDisplayed(current.slice(0, displayed.length + 1)),
+          60,
+        );
       } else {
         timeout = setTimeout(() => setTyping(false), 2000);
       }
@@ -42,13 +53,20 @@ export default function Hero() {
   useEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
-    const ctx = canvas.getContext('2d');
+    const ctx = canvas.getContext("2d");
     if (!ctx) return;
 
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
 
-    const particles: { x: number; y: number; vx: number; vy: number; r: number; alpha: number }[] = [];
+    const particles: {
+      x: number;
+      y: number;
+      vx: number;
+      vy: number;
+      r: number;
+      alpha: number;
+    }[] = [];
     for (let i = 0; i < 80; i++) {
       particles.push({
         x: Math.random() * canvas.width,
@@ -63,7 +81,7 @@ export default function Hero() {
     let animId: number;
     const animate = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
-      particles.forEach(p => {
+      particles.forEach((p) => {
         p.x += p.vx;
         p.y += p.vy;
         if (p.x < 0) p.x = canvas.width;
@@ -79,7 +97,7 @@ export default function Hero() {
 
       // Draw connections
       particles.forEach((p1, i) => {
-        particles.slice(i + 1).forEach(p2 => {
+        particles.slice(i + 1).forEach((p2) => {
           const dist = Math.hypot(p1.x - p2.x, p1.y - p2.y);
           if (dist < 120) {
             ctx.beginPath();
@@ -100,17 +118,20 @@ export default function Hero() {
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
     };
-    window.addEventListener('resize', handleResize);
+    window.addEventListener("resize", handleResize);
     return () => {
       cancelAnimationFrame(animId);
-      window.removeEventListener('resize', handleResize);
+      window.removeEventListener("resize", handleResize);
     };
   }, []);
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden grid-bg">
       {/* Particle canvas */}
-      <canvas ref={canvasRef} className="absolute inset-0 pointer-events-none" />
+      <canvas
+        ref={canvasRef}
+        className="absolute inset-0 pointer-events-none"
+      />
 
       {/* Radial glows */}
       <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-ai-cyan/5 rounded-full blur-3xl pointer-events-none" />
@@ -118,9 +139,19 @@ export default function Hero() {
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-ai-blue/3 rounded-full blur-3xl pointer-events-none" />
 
       {/* Floating badges */}
-      <div className="absolute top-1/4 right-10 hidden lg:flex flex-col gap-3 animate-float" style={{ animationDelay: '1s' }}>
-        {[{ icon: <Cpu size={14} />, label: 'Clean Code' }, { icon: <Zap size={14} />, label: 'Performance' }, { icon: <Globe size={14} />, label: 'Full-Stack' }].map(b => (
-          <div key={b.label} className="flex items-center gap-2 px-3 py-2 glass-card rounded-lg text-xs text-slate-400 border border-ai-border">
+      <div
+        className="absolute top-1/4 right-10 hidden lg:flex flex-col gap-3 animate-float"
+        style={{ animationDelay: "1s" }}
+      >
+        {[
+          { icon: <Cpu size={14} />, label: "Clean Code" },
+          { icon: <Zap size={14} />, label: "Performance" },
+          { icon: <Globe size={14} />, label: "Full-Stack" },
+        ].map((b) => (
+          <div
+            key={b.label}
+            className="flex items-center gap-2 px-3 py-2 glass-card rounded-lg text-xs text-slate-400 border border-ai-border"
+          >
             <span className="text-ai-cyan">{b.icon}</span>
             {b.label}
           </div>
@@ -129,17 +160,6 @@ export default function Hero() {
 
       {/* Main content */}
       <div className="relative z-10 max-w-4xl mx-auto px-6 text-center">
-        {/* AI badge */}
-        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-ai-purple/40 bg-gradient-to-r from-ai-purple/10 to-ai-pink/10 text-sm text-white mb-4 animate-fade-in" style={{ boxShadow: '0 0 20px rgba(139,92,246,0.25)' }}>
-          <Sparkles size={13} className="text-ai-purple" />
-          <span className="font-mono text-xs tracking-wide">
-            <span className="text-ai-purple font-semibold">AI-Generated</span>
-            <span className="text-slate-400"> · Designed & built with </span>
-            <span className="text-ai-pink font-semibold">Claude AI</span>
-          </span>
-          <Sparkles size={13} className="text-ai-pink" />
-        </div>
-
         {/* Status badge */}
         <div className="flex justify-center">
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-ai-cyan/20 bg-ai-cyan/5 text-sm text-ai-cyan mb-8 animate-fade-in">
@@ -149,16 +169,25 @@ export default function Hero() {
         </div>
 
         {/* Name */}
-        <h1 className="text-5xl md:text-7xl font-bold mb-4 leading-tight animate-fade-in" style={{ animationDelay: '0.1s' }}>
+        <h1
+          className="text-5xl md:text-7xl font-bold mb-4 leading-tight animate-fade-in"
+          style={{ animationDelay: "0.1s" }}
+        >
           <span className="text-white">Hi, I'm </span>
           <span className="text-gradient-main">Johnny</span>
         </h1>
-        <p className="text-lg md:text-xl text-slate-400 font-light mb-2 animate-fade-in" style={{ animationDelay: '0.2s' }}>
+        <p
+          className="text-lg md:text-xl text-slate-400 font-light mb-2 animate-fade-in"
+          style={{ animationDelay: "0.2s" }}
+        >
           Antiojo Jr.
         </p>
 
         {/* Typewriter */}
-        <div className="h-10 flex items-center justify-center mb-8 animate-fade-in" style={{ animationDelay: '0.3s' }}>
+        <div
+          className="h-10 flex items-center justify-center mb-8 animate-fade-in"
+          style={{ animationDelay: "0.3s" }}
+        >
           <span className="text-xl md:text-2xl font-mono font-medium text-ai-cyan">
             {displayed}
             <span className="typing-cursor" />
@@ -166,32 +195,50 @@ export default function Hero() {
         </div>
 
         {/* Stats */}
-        <div className="flex items-center justify-center gap-8 mb-10 animate-fade-in" style={{ animationDelay: '0.4s' }}>
+        <div
+          className="flex items-center justify-center gap-8 mb-10 animate-fade-in"
+          style={{ animationDelay: "0.4s" }}
+        >
           {[
-            { value: '6+', label: 'Years Exp.' },
-            { value: '3', label: 'Companies' },
-            { value: '10+', label: 'Projects' },
-            { value: '4', label: 'Tech Stacks' },
-          ].map(stat => (
+            { value: "6+", label: "Years Exp." },
+            { value: "3", label: "Companies" },
+            { value: "10+", label: "Projects" },
+            { value: "4", label: "Tech Stacks" },
+          ].map((stat) => (
             <div key={stat.label} className="text-center">
-              <div className="text-2xl font-bold text-gradient-cyan">{stat.value}</div>
+              <div className="text-2xl font-bold text-gradient-cyan">
+                {stat.value}
+              </div>
               <div className="text-xs text-slate-500 mt-0.5">{stat.label}</div>
             </div>
           ))}
         </div>
 
         {/* CTA buttons */}
-        <div className="flex flex-wrap items-center justify-center gap-4 mb-12 animate-fade-in" style={{ animationDelay: '0.5s' }}>
+        <div
+          className="flex flex-wrap items-center justify-center gap-4 mb-12 animate-fade-in"
+          style={{ animationDelay: "0.5s" }}
+        >
           <a
             href="#projects"
-            onClick={e => { e.preventDefault(); document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' }); }}
+            onClick={(e) => {
+              e.preventDefault();
+              document
+                .getElementById("projects")
+                ?.scrollIntoView({ behavior: "smooth" });
+            }}
             className="px-8 py-3 rounded-xl bg-gradient-to-r from-ai-cyan to-ai-blue text-white font-semibold text-sm hover:opacity-90 hover:scale-105 transition-all duration-200 glow-cyan"
           >
             View Projects
           </a>
           <a
             href="#about"
-            onClick={e => { e.preventDefault(); document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' }); }}
+            onClick={(e) => {
+              e.preventDefault();
+              document
+                .getElementById("about")
+                ?.scrollIntoView({ behavior: "smooth" });
+            }}
             className="px-8 py-3 rounded-xl border border-ai-border text-slate-300 font-semibold text-sm hover:border-ai-cyan/50 hover:text-ai-cyan hover:bg-ai-cyan/5 transition-all duration-200"
           >
             About Me
@@ -199,17 +246,36 @@ export default function Hero() {
         </div>
 
         {/* Contact links */}
-        <div className="flex items-center justify-center gap-4 animate-fade-in" style={{ animationDelay: '0.6s' }}>
+        <div
+          className="flex items-center justify-center gap-4 animate-fade-in"
+          style={{ animationDelay: "0.6s" }}
+        >
           {[
-            { icon: <Mail size={16} />, label: personalInfo.email, href: `mailto:${personalInfo.email}` },
-            { icon: <Phone size={16} />, label: personalInfo.phone, href: `tel:${personalInfo.phone}` },
-            { icon: <FaGithub size={16} />, label: 'GitHub', href: personalInfo.github },
-            { icon: <FaLinkedin size={16} />, label: 'LinkedIn', href: personalInfo.linkedin },
-          ].map(link => (
+            {
+              icon: <Mail size={16} />,
+              label: personalInfo.email,
+              href: `mailto:${personalInfo.email}`,
+            },
+            {
+              icon: <Phone size={16} />,
+              label: personalInfo.phone,
+              href: `tel:${personalInfo.phone}`,
+            },
+            {
+              icon: <FaGithub size={16} />,
+              label: "GitHub",
+              href: personalInfo.github,
+            },
+            {
+              icon: <FaLinkedin size={16} />,
+              label: "LinkedIn",
+              href: personalInfo.linkedin,
+            },
+          ].map((link) => (
             <a
               key={link.label}
               href={link.href}
-              target={link.href.startsWith('http') ? '_blank' : undefined}
+              target={link.href.startsWith("http") ? "_blank" : undefined}
               rel="noopener noreferrer"
               className="flex items-center gap-1.5 text-slate-500 hover:text-ai-cyan transition-colors text-sm"
             >
