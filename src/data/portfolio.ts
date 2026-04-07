@@ -117,6 +117,14 @@ export const skillCategories = [
 ];
 
 export const projects = [
+    {
+    name: "VirtualPedia",
+    url: "https://virtualpedia-tau.vercel.app",
+    description: "Free AI-powered online pediatric consultation platform. Parents can chat with Dr. Pedia — an AI pediatrician — for instant, caring guidance on child health, vaccines, milestones, and nutrition. Features Google OAuth, real-time streaming responses, guest preview with 5 free questions, and a 20-message daily limit for authenticated users.",
+    tags: ["AI", "React", "TypeScript", "Node.js", "MongoDB", "OpenAI", "Google OAuth"],
+    color: "cyan",
+    featured: true,
+  },
   {
     name: "GopeakFit",
     url: "https://gopeakfit.com",

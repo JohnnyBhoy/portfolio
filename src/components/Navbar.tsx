@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Menu, X, Code2 } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 
 const navItems = [
   { label: 'About', href: '#about' },
@@ -43,11 +43,11 @@ export default function Navbar() {
           onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
           className="flex items-center gap-2 group"
         >
-          <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-ai-cyan to-ai-purple flex items-center justify-center">
-            <Code2 size={16} className="text-white" />
+          <div className="w-8 h-8 rounded-full bg-gradient-to-br from-ai-cyan to-ai-purple flex items-center justify-center">
+             <img src="johnny.ico" alt="" />
           </div>
           <span className="font-mono text-sm font-semibold text-ai-cyan hidden sm:block">
-            JPA<span className="text-white/50">.</span>dev
+            <span className="text-white/50"></span>AI-Engineer
           </span>
         </button>
 
