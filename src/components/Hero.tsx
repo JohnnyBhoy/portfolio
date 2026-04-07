@@ -6,7 +6,6 @@ import {
   Cpu,
   Zap,
   Globe,
-  Sparkles,
 } from "lucide-react";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { personalInfo } from "../data/portfolio";
@@ -42,8 +41,10 @@ export default function Hero() {
       if (displayed.length > 0) {
         timeout = setTimeout(() => setDisplayed(displayed.slice(0, -1)), 30);
       } else {
-        setRoleIndex((i) => (i + 1) % roles.length);
-        setTyping(true);
+        timeout = setTimeout(() => {
+          setRoleIndex((i) => (i + 1) % roles.length);
+          setTyping(true);
+        }, 0);
       }
     }
     return () => clearTimeout(timeout);
