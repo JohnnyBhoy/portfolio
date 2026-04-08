@@ -14,7 +14,7 @@ export const experiences = [
     title: "Fullstack Software Developer",
     company: "SALT Marketing",
     type: "Freelance Contractor",
-    period: "Aug 2023 – Aug 2025",
+    period: "Aug 2023 – Present",
     color: "cyan",
     bullets: [
       "Designed and developed fault-tolerant, security-standards-compliant web applications for a sales lead generation team and manufacturer-sales rep platforms.",
@@ -117,7 +117,15 @@ export const skillCategories = [
 ];
 
 export const projects = [
-    {
+  {
+    name: "SlideForge",
+    url: "https://slideforge-fawn.vercel.app",
+    description: "AI-powered presentation builder for students and teachers. Enter any topic, pick a grade level, and get a fully designed .pptx file in seconds — complete with topic-matched images pulled from Wikipedia, 12–16 content slides, a built-in multiple-choice quiz, key fact callout boxes, and a summary slide. Features Google OAuth for teachers, a guest free-tier, GCash subscription flow, and an admin dashboard for managing users and payments.",
+    tags: ["AI", "React", "TypeScript", "Node.js", "MongoDB", "Anthropic Claude", "PptxGenJS", "Google OAuth", "TailwindCSS"],
+    color: "blue",
+    featured: true,
+  },
+  {
     name: "VirtualPedia",
     url: "https://virtualpedia-tau.vercel.app",
     description: "Free AI-powered online pediatric consultation platform. Parents can chat with Dr. Pedia — an AI pediatrician — for instant, caring guidance on child health, vaccines, milestones, and nutrition. Features Google OAuth, real-time streaming responses, guest preview with 5 free questions, and a 20-message daily limit for authenticated users.",
