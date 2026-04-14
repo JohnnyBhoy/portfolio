@@ -112,7 +112,7 @@ export default function Projects() {
           return (
             <div
               key={project.name}
-              className={`glass-card rounded-2xl p-6 border ${c.border} group hover:border-opacity-60 transition-all duration-300 flex flex-col sm:flex-row sm:items-center gap-4`}
+              className={`glass-card rounded-2xl p-6 border ${c.border} group hover:border-opacity-60 transition-all duration-300 flex flex-col sm:flex-row sm:items-center gap-4 mb-6`}
             >
               <div className={`w-12 h-12 rounded-xl ${c.bg} border ${c.border} flex items-center justify-center flex-shrink-0`}>
                 <Globe size={20} className={c.text} />

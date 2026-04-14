@@ -7,6 +7,7 @@ import Skills from './components/Skills';
 import Projects from './components/Projects';
 import Education from './components/Education';
 import Footer from './components/Footer';
+import JohnnyBot from './components/JohnnyBot';
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
       <Projects />
       <Education />
       <Footer />
+      <JohnnyBot />
     </div>
   );
 }

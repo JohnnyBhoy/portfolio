@@ -150,6 +150,14 @@ export const projects = [
     featured: true,
   },
   {
+    name: "Virtual Johnny — AI Portfolio Assistant",
+    url: "https://huggingface.co/spaces/JohnnyBhoy1993/Johnny_Bot",
+    description: "An AI-powered digital twin of Johnny Antiojo Jr. that answers questions about his skills, experience, and projects in real time. Built with Python and OpenAI GPT, deployed on Hugging Face Spaces, and embedded directly in this portfolio as a live chat assistant.",
+    tags: ["Python", "OpenAI", "Hugging Face", "Gradio", "AI Chatbot"],
+    color: "purple",
+    featured: false,
+  },
+  {
     name: "Hotel & Villa Booking",
     url: "http://johnnyantiojo-001-site1.ntempurl.com",
     description: "Online Hotel & Villa Booking System with real-time availability, reservation management, and payment integration.",
