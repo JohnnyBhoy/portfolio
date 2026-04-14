@@ -75,7 +75,7 @@ export default function JohnnyBot() {
   const [messages, setMessages] = useState<Message[]>([
     {
       role: 'bot',
-      text: "Hi! I'm Virtual Johnny 👋 I'm Johnny's online self. Ask me anything about my skills, experience, or projects!",
+      text: "Hi! I’m Johnny's AI, and I’d be happy to tell you more about myself. Feel free to ask about my skills, experience, or projects—I’m glad to share details and insights about my work and how I approach challenges!",
     },
   ]);
   const [loading, setLoading] = useState(false);
@@ -146,8 +146,8 @@ export default function JohnnyBot() {
               />
               <span className="absolute -bottom-0.5 -right-0.5 w-2.5 h-2.5 rounded-full bg-green-400 border-2 border-[#0d1117]" />
             </div>
-            <div>
-              <p className="text-sm font-semibold text-white leading-none">Virtual Johnny</p>
+            <div> 
+              <p className="text-sm font-semibold text-white leading-none">Johnny's AI Assistant</p>
               <p className="text-[10px] text-ai-cyan mt-0.5 font-mono">Johnny's Online Assistant · Always here</p>
             </div>
           </div>
@@ -234,7 +234,7 @@ export default function JohnnyBot() {
             </button>
           </div>
           <p className="text-center text-[10px] text-slate-600 mt-1.5 font-mono">
-            Virtual Johnny · Powered by OpenAI
+            Johnny's AI · Powered by OpenAI
           </p>
         </div>
       </div>
